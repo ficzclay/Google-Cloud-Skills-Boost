@@ -11,7 +11,7 @@ gcloud compute networks create xall-vpc--vpc-01 \
     --subnet-mode=custom \
     --bgp-routing-mode=global \
     --mtu=1460
-sleep 3
+
 
 
 gcloud compute networks subnets create xgl-subnet--cerps-bau-nonprd--be1-01 \
@@ -22,7 +22,7 @@ gcloud compute networks subnets create xgl-subnet--cerps-bau-nonprd--be1-01 \
     --range=10.1.1.0/24 \
     --enable-private-ip-google-access \
     --enable-flow-logs
-sleep 3
+
 
 
 gcloud compute firewall-rules create xall-vpc--vpc-01--xall-fw--user--a--linux--v01 \
@@ -35,7 +35,7 @@ gcloud compute firewall-rules create xall-vpc--vpc-01--xall-fw--user--a--linux--
     --target-tags=xall-vpc--vpc-01--xall-fw--user--a--linux--v01 \
     --source-ranges=0.0.0.0/0 \
     --rules=tcp:22,icmp
-sleep 3
+
 
 
 gcloud compute firewall-rules create xall-vpc--vpc-01--xall-fw--user--a--windows--v01 \
@@ -48,7 +48,7 @@ gcloud compute firewall-rules create xall-vpc--vpc-01--xall-fw--user--a--windows
     --target-tags=xall-vpc--vpc-01--xall-fw--user--a--windows--v01 \
     --source-ranges=0.0.0.0/0 \
     --rules=tcp:3389,icmp
-sleep 3
+
 
 
 gcloud compute firewall-rules create xall-vpc--vpc-01--xall-fw--user--a--sapgui--v01 \
@@ -61,7 +61,7 @@ gcloud compute firewall-rules create xall-vpc--vpc-01--xall-fw--user--a--sapgui-
     --target-tags=xall-vpc--vpc-01--xall-fw--user--a--sapgui--v01 \
     --source-ranges=0.0.0.0/0 \
     --rules=tcp:3200-3299,tcp:3600-3699
-sleep 3
+
 
 
 gcloud compute firewall-rules create xall-vpc--vpc-01--xall-fw--user--a--sap-fiori--v01 \
@@ -74,7 +74,7 @@ gcloud compute firewall-rules create xall-vpc--vpc-01--xall-fw--user--a--sap-fio
     --target-tags=xall-vpc--vpc-01--xall-fw--user--a--sap-fiori--v01 \
     --source-ranges=0.0.0.0/0 \
     --rules=tcp:80,tcp:8000-8099,tcp:443,tcp:4300-44300
-sleep 3
+
 
 
 gcloud compute firewall-rules create xall-vpc--vpc-01--xgl-fw--cerps-bau-dev--a-env--v01 \
@@ -87,7 +87,7 @@ gcloud compute firewall-rules create xall-vpc--vpc-01--xgl-fw--cerps-bau-dev--a-
     --target-tags=xall-vpc--vpc-01--xgl-fw--cerps-bau-dev--a-env--v01 \
     --source-tags=xall-vpc--vpc-01--xgl-fw--cerps-bau-dev--a-env--v01 \
     --rules=tcp:3200-3299,tcp:3300-3399,tcp:4800-4899,tcp:80,tcp:8000-8099,tcp:443,tcp:44300-44399,tcp:3600-3699,tcp:8100-8199,tcp:44400-44499,tcp:50000-59999,tcp:30000-39999,tcp:4300-4399,tcp:40000-49999,tcp:1128-1129,tcp:5050,tcp:8000-8499,tcp:515,icmp
-sleep 3
+
 
 
 gcloud compute firewall-rules create xall-vpc--vpc-01--xgl-fw--cerps-bau-dev--a-ds4--v01 \
@@ -100,7 +100,7 @@ gcloud compute firewall-rules create xall-vpc--vpc-01--xgl-fw--cerps-bau-dev--a-
     --target-tags=xall-vpc--vpc-01--xgl-fw--cerps-bau-dev--a-ds4--v01 \
     --source-tags=xall-vpc--vpc-01--xgl-fw--cerps-bau-dev--a-ds4--v01 \
     --rules=tcp,udp,icmp
-sleep 3
+
 
 
 gcloud compute addresses create xgl-ip-address--cerps-bau-dev--dh1--d-cerpshana1 \
@@ -109,7 +109,7 @@ gcloud compute addresses create xgl-ip-address--cerps-bau-dev--dh1--d-cerpshana1
     --region=$Your_Region \
     --subnet=xgl-subnet--cerps-bau-nonprd--be1-01 \
     --addresses=10.1.1.100
-sleep 3
+
 
 gcloud compute addresses create xgl-ip-address--cerps-bau-dev--ds4--d-cerpss4db \
     --description="Reserved IP for cerpss4db VM" \
@@ -117,7 +117,7 @@ gcloud compute addresses create xgl-ip-address--cerps-bau-dev--ds4--d-cerpss4db 
     --region=$Your_Region \
     --subnet=xgl-subnet--cerps-bau-nonprd--be1-01 \
     --addresses=10.1.1.101
-sleep 3
+
 
 gcloud compute addresses create xgl-ip-address--cerps-bau-dev--ds4--d-cerpss4scs \
     --description="Reserved IP for cerpss4scs VM" \
@@ -125,7 +125,7 @@ gcloud compute addresses create xgl-ip-address--cerps-bau-dev--ds4--d-cerpss4scs
     --region=$Your_Region \
     --subnet=xgl-subnet--cerps-bau-nonprd--be1-01 \
     --addresses=10.1.1.102
-sleep 3
+
 
 gcloud compute addresses create xgl-ip-address--cerps-bau-dev--ds4--d-cerpss4app1 \
     --description="Reserved IP for cerpss4app1 VM" \
@@ -133,7 +133,7 @@ gcloud compute addresses create xgl-ip-address--cerps-bau-dev--ds4--d-cerpss4app
     --region=$Your_Region \
     --subnet=xgl-subnet--cerps-bau-nonprd--be1-01 \
     --addresses=10.1.1.103
-sleep 3
+
 
 
 gcloud compute routers create xall-vpc--vpc-01--xall-router--shared-nat--de1-01 \
@@ -141,7 +141,7 @@ gcloud compute routers create xall-vpc--vpc-01--xall-router--shared-nat--de1-01 
     --project=$Your_Project_Id \
     --region=$Your_Region \
     --network=xall-vpc--vpc-01
-sleep 3
+
 
 
 gcloud compute routers nats create xall-vpc--vpc-01--xall-nat-gw--shared-nat--de1-01 \
@@ -151,7 +151,7 @@ gcloud compute routers nats create xall-vpc--vpc-01--xall-nat-gw--shared-nat--de
     --auto-allocate-nat-external-ips \
     --nat-all-subnet-ip-ranges \
     --enable-logging
-sleep 3
+
 
 echo ""
 echo "🎉 ✅ All tasks completed successfully!"
